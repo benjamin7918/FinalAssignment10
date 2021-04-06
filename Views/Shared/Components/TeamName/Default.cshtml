@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Teams>
+
+<a asp-action="" asp-controller="Home" asp-route-teamnameid="">Home</a>
+<br />
+
+<!--This is how we highlight the selected team and do the routing.-->
+@foreach (var x in Model)
+{
+    <a class="@(x.TeamName == ViewBag.SelectedType ? "btn-primary" : "btn-outline-secondary")"
+       asp-controller="Home" 
+       asp-route-teamnameid="@x.TeamId"
+       asp-route-teamname="@x.TeamName">
+        @x.TeamName</a>
+    <br />
+}
